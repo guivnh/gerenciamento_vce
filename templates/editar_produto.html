@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Produto</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <script>
+        function preencherCamposVazios() {
+            const precoVendaInput = document.getElementById('preco');
+            const precoCompraInput = document.getElementById('preco_compra');
+            const quantidadeInput = document.getElementById('quantidade');
+
+            if (precoVendaInput.value.trim() === '') {
+                precoVendaInput.value = '0';
+            }
+            if (precoCompraInput.value.trim() === '') {
+                precoCompraInput.value = '0';
+            }
+            if (quantidadeInput.value.trim() === '') {
+                quantidadeInput.value = '0';
+            }
+        }
+
+        function formatarPrecoComVirgula(input) {
+            input.value = input.value.replace('.', ',');
+        }
+
+        function atualizarQuantidade() {
+            const tipoVenda = document.getElementById('tipo_venda').value;
+            const quantidadeInput = document.getElementById('quantidade');
+
+            if (tipoVenda === 'mililitros' || tipoVenda === 'peso' || tipoVenda === 'unitario') {
+                quantidadeInput.value = parseFloat(quantidadeInput.value).toFixed(0);
+            } else {
+                quantidadeInput.value = parseInt(quantidadeInput.value);
+            }
+        }
+
+        window.onload = function() {
+            document.querySelector('form').addEventListener('submit', preencherCamposVazios);
+            document.getElementById('preco').addEventListener('input', function(e) {
+                formatarPrecoComVirgula(e.target);
+            });
+            document.getElementById('preco_compra').addEventListener('input', function(e) {
+                formatarPrecoComVirgula(e.target);
+            });
+            document.getElementById('tipo_venda').addEventListener('change', atualizarQuantidade);
+
+            atualizarQuantidade();
+            formatarPrecoComVirgula(document.getElementById('preco'));
+            formatarPrecoComVirgula(document.getElementById('preco_compra'));
+        }
+    </script>
+</head>
+<body>
+    <header id="pagina-editar-produto-header">
+        <h1>Editar Produto</h1>
+    </header>
+    <main id="pagina-editar-produto-main">
+        <form id="pagina-editar-produto-form" action="{{ url_for('editar_produto', id=produto['_id']) }}" method="POST">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" value="{{ produto['nome'] }}" required>
+
+            <label for="preco">Preço de Venda (R$):</label>
+            <input type="text" id="preco" name="preco" value="{{ produto['preco'] | formatar_preco }}" required>
+
+            <label for="preco_compra">Preço de Compra (R$):</label>
+            <input type="text" id="preco_compra" name="preco_compra" value="{{ produto['preco_compra'] | formatar_preco }}" required>
+
+            <label for="quantidade">Quantidade:</label>
+            <input type="number" id="quantidade" name="quantidade" value="{{ produto.get('quantidade', 0) }}"
+                   step="any" min="0" placeholder="Digite a quantidade" title="Digite um número válido" required>
+
+            <label for="tipo_venda">Tipo de Venda:</label>
+            <select id="tipo_venda" name="tipo_venda" required>
+                <option value="unitario" {% if produto['tipo_venda'] == 'unitario' %}selected{% endif %}>Unidade</option>
+                <option value="peso" {% if produto['tipo_venda'] == 'peso' %}selected{% endif %}>Peso</option>
+                <option value="mililitros" {% if produto['tipo_venda'] == 'mililitros' %}selected{% endif %}>Mililitros</option>
+            </select>
+
+            <label for="observacao">Observação:</label>
+            <input type="text" id="observacao" name="observacao" value="{{ produto.get('observacao', '') }}">
+
+            <button type="submit">Atualizar</button>
+        </form>
+
+        <div id="pagina-editar-produto-back-link">
+            <a href="{{ url_for('index') }}">Voltar</a>
+        </div>
+    </main>
+    <footer id="pagina-editar-produto-footer">
+        <p>&copy; 2024 Gerenciamento de Vendas</p>
+    </footer>
+</body>
+</html>

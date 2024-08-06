@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listar Vendas</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <header class="listar-vendas-header">
+        <h1>Lista de Vendas Realizadas</h1>
+    </header>
+    <main class="listar-vendas-main">
+        <table class="listar-vendas-table">
+            <thead>
+                <tr>
+                    <th>ID da Venda</th>
+                    <th>Nome do Produto</th>
+                    <th>Quantidade (Gramas ou Unidades)</th>
+                    <th>Preço (Kg ou Unidade)</th>
+                    <th>Valor Total (R$)</th>
+                    <th>Data e Hora</th>
+                    <th>Observação</th>
+                    <th>Remover da Lista</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for venda in vendas %}
+                {% set venda_items = venda.itens %}
+                {% for item in venda_items %}
+                <tr>
+                    {% if loop.first %}
+                    <td rowspan="{{ venda_items|length }}" class="venda-id">{{ venda.venda_id }}</td>
+                    {% endif %}
+                    <td class="item-produto">{{ item.produto }}</td>
+                    <td class="item-quantidade">
+                        {% if item.tipo_venda == 'peso' %}
+                            {{ item.quantidade }} g.
+                        {% elif item.tipo_venda == 'mililitros' %}
+                            {{ item.quantidade }} ml.
+                        {% else %}
+                            {{ item.quantidade }} un.
+                        {% endif %}
+                    </td>
+                    <td class="item-preco">R$ {{ item.preco_unitario }}</td>
+                    <td class="item-total">R$ {{ item.total }}</td>
+                    {% if loop.first %}
+                    <td rowspan="{{ venda_items|length }}" class="venda-data">{{ venda.data }}</td>
+                    {% endif %}
+                    <td class="item-observacao">{{ item.observacao }}</td>
+                    {% if loop.first %}
+                    <td rowspan="{{ venda_items|length }}" class="venda-remover">
+                        <a href="{{ url_for('remover_venda', id=venda.venda_id) }}" class="remover-link">Excluir da Lista</a>
+                    </td>
+                    {% endif %}
+                </tr>
+                {% endfor %}
+                {% endfor %}
+            </tbody>
+            <tfoot id="tfootTotal">
+                <!-- As linhas de total serão adicionadas aqui pelo JavaScript -->
+            </tfoot>
+        </table>
+
+        <div>
+            <p><a href="{{ url_for('exportar_vendas') }}" class="export-link">Exportar Vendas em CSV</a></p>
+            <form action="{{ url_for('importar_vendas') }}" method="post" enctype="multipart/form-data" class="import-form">
+                <input type="submit" value="Importar Vendas em CSV" class="import-submit">
+                <input type="file" name="file" accept=".csv" class="import-file">
+            </form>
+        </div>
+
+        <div class="back-button-container">
+            <a href="{{ url_for('index') }}" class="realizadas-back-link">Voltar</a>
+        </div>
+    </main>
+    <footer class="listar-vendas-footer">
+        <p>&copy; 2024 Sistema de Vendas e Controle de Estoque</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const rows = Array.from(document.querySelectorAll('.listar-vendas-table tbody tr'));
+            let vendaId = null;
+            let totalSum = 0;
+            let lastRow = null;
+
+            rows.forEach(row => {
+                const currentVendaId = row.querySelector('.venda-id')?.textContent.trim();
+                const totalCell = row.querySelector('.item-total');
+
+                if (currentVendaId) {
+                    // Adiciona a linha de total para o grupo anterior, se existir
+                    if (vendaId && vendaId !== currentVendaId && lastRow) {
+                        const tr = document.createElement('tr');
+                        tr.className = 'linha-total';
+                        tr.innerHTML = `
+                            <td colspan="8" class="total-texto-valor">
+                                <strong>Total da Venda:</strong> R$ ${totalSum.toFixed(2).replace('.', ',')}
+                            </td>
+                        `;
+                        lastRow.insertAdjacentElement('afterend', tr);
+                        totalSum = 0; // Reseta a soma para o próximo grupo
+                    }
+                    vendaId = currentVendaId;
+                }
+
+                // Soma os valores
+                if (totalCell) {
+                    const valueText = totalCell.textContent.replace('R$ ', '').replace('.', '').replace(',', '.');
+                    const value = parseFloat(valueText);
+                    if (!isNaN(value)) {
+                        totalSum += value;
+                    }
+                }
+
+                // Atualiza a referência para a última linha do grupo
+                lastRow = row;
+            });
+
+            // Adiciona a linha de total para o último grupo
+            if (vendaId && lastRow) {
+                const tr = document.createElement('tr');
+                tr.className = 'linha-total';
+                tr.innerHTML = `
+                    <td colspan="8" class="total-texto-valor">
+                        <strong>Total da Venda:</strong> R$ ${totalSum.toFixed(2).replace('.', ',')}
+                    </td>
+                `;
+                lastRow.insertAdjacentElement('afterend', tr);
+            }
+        });
+    </script>
+</body>
+</html>

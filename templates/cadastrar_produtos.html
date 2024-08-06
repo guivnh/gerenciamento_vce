@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar Produtos</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <script>
+        function preencherCamposVazios() {
+            const precoCompraInput = document.getElementById('preco_compra');
+            const quantidadeInput = document.getElementById('quantidade');
+
+            if (precoCompraInput.value.trim() === '') {
+                precoCompraInput.value = '0';
+            }
+            if (quantidadeInput.value.trim() === '') {
+                quantidadeInput.value = '0';
+            }
+        }
+
+        function validarFormulario() {
+            preencherCamposVazios();
+        }
+
+        function formatarPrecoComVirgula(input) {
+            input.value = input.value.replace('.', ',');
+        }
+
+        window.onload = function() {
+            document.querySelector('form').addEventListener('submit', validarFormulario);
+            document.getElementById('preco').addEventListener('input', function(e) {
+                formatarPrecoComVirgula(e.target);
+            });
+            document.getElementById('preco_compra').addEventListener('input', function(e) {
+                formatarPrecoComVirgula(e.target);
+            });
+        };
+    </script>
+</head>
+<body>
+    <header id="pagina-cadastrar-produto-header">
+        <h1>Cadastrar um Produto</h1>
+    </header>
+    <main id="pagina-cadastrar-produto-main">
+        <!-- Bloco para exibir mensagens flash -->
+        <div id="pagina-cadastrar-produto-mensagem">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+              {% if messages %}
+                <ul>
+                {% for category, message in messages %}
+                  <li class="{{ category }}">{{ message }}</li>
+                {% endfor %}
+                </ul>
+              {% endif %}
+            {% endwith %}
+        </div>
+
+        <form id="pagina-cadastrar-produto-form" action="{{ url_for('cadastrar_produtos') }}" method="post">
+            <label for="nome">Nome do Produto:</label>
+            <input type="text" id="nome" name="nome" placeholder="Nome do produto." required>
+
+            <label for="preco">Preço de Venda (R$):</label>
+            <input type="text" id="preco" name="preco" placeholder="Preço de Venda por Unidade, Quilo ou Litro." required>
+
+            <label for="preco_compra">Preço de Compra (R$):</label>
+            <input type="text" id="preco_compra" name="preco_compra" placeholder="Quanto lhe custa. (Opcional)">
+
+            <label for="tipo_venda">Tipo de Venda:</label>
+            <select id="tipo_venda" name="tipo_venda" required>
+                <option value="" disabled selected>Selecione o Tipo de Venda</option>
+                <option value="unitario">Por Unidade (Ex: Insira "1000" para 1000 Unid.)</option>
+                <option value="peso">Por Gramas (Ex: Insira "1000" para 1 Kg.)</option>
+                <option value="mililitros">Por Mililitros (Ex: Insira "1000" para 1 L.)</option>
+            </select>
+
+            <label for="quantidade">Quantidade:</label>
+            <input type="number" id="quantidade" name="quantidade" min="0" step="any" placeholder="Por Unidades, Gramas ou Mililitros. (Opcional)" title="Digite um número válido">
+
+            <label for="observacao">Observação:</label>
+            <input type="text" id="observacao" name="observacao" placeholder="Observação. (Opcional)">
+
+            <button type="submit">Cadastrar</button>
+        </form>
+
+        <div id="pagina-cadastrar-produto-back-link">
+            <a href="{{ url_for('index') }}">Voltar</a>
+        </div>
+    </main>
+    <footer id="pagina-cadastrar-produto-footer">
+        <p>&copy; 2024 Sistema de Vendas e Controle de Estoque</p>
+    </footer>
+</body>
+</html>

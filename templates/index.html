@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Vendas e Controle de Estoque</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body id="pagina-inicial-body">
+    <header id="pagina-inicial-header">
+        <h1>Sistema de Vendas e Controle de Estoque</h1>
+    </header>
+    <main id="pagina-inicial-main">
+        <section>
+            <a href="{{ url_for('cadastrar_produtos') }}">Cadastrar Produto</a>
+            <a href="{{ url_for('listar_produtos') }}">Listar Produtos Cadastrados</a>
+            <a href="{{ url_for('realizar_venda') }}">Realizar Venda</a>
+            <a href="{{ url_for('listar_vendas') }}">Listar Vendas</a>
+        </section>
+    </main>
+    <footer id="pagina-inicial-footer">
+        <p>&copy; 2024 Sistema de Vendas e Controle de Estoque</p>
+    </footer>
+</body>
+</html>

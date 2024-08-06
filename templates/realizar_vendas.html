@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Realizar Venda</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <script>
+        function calcularPrecoTotal() {
+            const precoUnitario = parseFloat(document.getElementById('preco_unitario_valor').innerText.replace(',', '.'));
+            const quantidade = parseFloat(document.getElementById('quantidade').value);
+            const tipoVenda = document.getElementById('tipo_venda').value.trim();
+            let precoTotal = 0;
+
+            if (!isNaN(precoUnitario) && !isNaN(quantidade)) {
+                if (tipoVenda === 'peso' || tipoVenda === 'mililitros') {
+                    const precoPorUnidade = precoUnitario / 1000;
+                    precoTotal = precoPorUnidade * quantidade;
+                } else {
+                    precoTotal = precoUnitario * quantidade;
+                }
+                document.getElementById('preco_total').value = precoTotal.toFixed(2).replace('.', ',');
+            } else {
+                document.getElementById('preco_total').value = '';
+            }
+        }
+
+        function atualizarInformacoesProduto() {
+            const produtoSelect = document.getElementById('produto');
+            const selectedOption = produtoSelect.options[produtoSelect.selectedIndex];
+            const precoUnitario = selectedOption.getAttribute('data-preco');
+            const tipoVenda = selectedOption.getAttribute('data-tipo-venda');
+            const quantidadeDisponivel = parseFloat(selectedOption.getAttribute('data-quantidade'));
+
+            if (produtoSelect.selectedIndex === 0) {
+                // Oculta os textos e limpa os campos quando a opção desabilitada está selecionada
+                document.getElementById('preco_unitario').style.display = 'none';
+                document.getElementById('quantidade_disponivel').style.display = 'none';
+                document.getElementById('preco_unitario_valor').innerText = '';
+                document.getElementById('quantidade_disponivel').innerText = '';
+                document.getElementById('tipo_venda').value = '';
+                document.getElementById('preco_total').value = '';
+            } else {
+                // Atualiza e exibe o texto "Preço (R$):"
+                if (precoUnitario) {
+                    document.getElementById('preco_unitario_valor').innerText = parseFloat(precoUnitario).toFixed(2).replace('.', ',');
+                    document.getElementById('preco_unitario').style.display = 'block';
+                }
+
+                // Atualiza e exibe o texto "Qtd. Disponível:"
+                let unidadeDisponivel;
+                if (tipoVenda === 'unitario') {
+                    unidadeDisponivel = ' un.';
+                } else if (tipoVenda === 'peso') {
+                    unidadeDisponivel = ' g.';
+                } else if (tipoVenda === 'mililitros') {
+                    unidadeDisponivel = ' ml.';
+                }
+
+                document.getElementById('quantidade_disponivel').innerText = `Qtd. Disponível: ${quantidadeDisponivel.toFixed(0)}${unidadeDisponivel}`;
+                document.getElementById('quantidade_disponivel').style.display = 'block';
+                document.getElementById('tipo_venda').value = tipoVenda;
+                calcularPrecoTotal(); // Chama a função para calcular o preço total
+            }
+        }
+
+        function validarFormulario(event) {
+            const quantidade = parseFloat(document.getElementById('quantidade').value);
+            const quantidadeDisponivel = parseFloat(document.getElementById('produto').selectedOptions[0].getAttribute('data-quantidade'));
+
+            if (quantidadeDisponivel > 0 && quantidade > quantidadeDisponivel) {
+                event.preventDefault();
+                document.getElementById('mensagem_erro').innerText = "Quantidade excede a disponível em estoque.";
+            } else {
+                document.getElementById('mensagem_erro').innerText = "";
+            }
+        }
+
+        // Remove todos os caracteres não numéricos, mantendo apenas os dígitos
+        function limparCampoQuantidade(event) {
+            const input = event.target;
+            input.value = input.value.replace(/\D/g, ''); // Remove todos os caracteres não numéricos
+            calcularPrecoTotal(); // Atualiza o preço total sempre que a quantidade é alterada
+        }
+
+        window.onload = function() {
+            document.getElementById('produto').addEventListener('change', atualizarInformacoesProduto);
+            document.getElementById('quantidade').addEventListener('input', limparCampoQuantidade);
+            document.querySelector('form').addEventListener('submit', validarFormulario);
+            atualizarInformacoesProduto(); // Atualiza as informações do produto ao carregar
+        };
+    </script>
+</head>
+<body id="pagina_realizar_venda">
+    <header id="cabecalho">
+        <h1>Realizar uma Venda</h1>
+    </header>
+    <main id="conteudo_principal">
+        <div id="container_principal">
+            <div id="formulario_container">
+                <form id="formulario_venda" action="{{ url_for('realizar_venda') }}" method="POST">
+                    <label for="produto">Produto:</label>
+                    <select id="produto" name="produto_id" required>
+                        <option value="" disabled selected>Selecione o produto</option>
+                        {% for produto in produtos %}
+                        <option value="{{ produto['_id'] }}" data-preco="{{ produto['preco'] }}" data-tipo-venda="{{ produto['tipo_venda'] }}" data-quantidade="{{ produto['quantidade'] }}">{{ produto['nome'] }}</option>
+                        {% endfor %}
+                    </select><br>
+
+                    <p id="preco_unitario" style="display: none;">Preço (R$): <span id="preco_unitario_valor"></span></p>
+                    <p id="quantidade_disponivel" style="display: none;"></p>
+
+                    <input type="hidden" id="tipo_venda">
+
+                    <label for="quantidade">Quantidade:</label>
+                    <input type="number" id="quantidade" name="quantidade" min="0" required><br>
+
+                    <label for="preco_total">Preço Total (R$):</label>
+                    <input type="text" id="preco_total" readonly><br>
+
+                    <button type="submit" id="adicionar">Adicionar</button>
+                    <p id="mensagem_erro" style="color: red;"></p>
+                </form>
+            </div>
+
+            <div id="lista_itens">
+                <h2>Lista de Itens</h2>
+                {% if carrinho %}
+                    {% for item in carrinho %}
+                        <li>
+                            {{ loop.index }}. {{ item['nome'] }} | Quantidade: {{ "%.0f"|format(item['quantidade']) }}
+                            {% if item['tipo_venda'] == 'unitario' %}
+                                un.
+                            {% elif item['tipo_venda'] == 'peso' %}
+                                g.
+                            {% elif item['tipo_venda'] == 'mililitros' %}
+                                ml.
+                            {% endif %}
+                            | Total R$:
+                            {% if 'preco_unitario' in item %}
+                                {% if item['tipo_venda'] in ['peso', 'mililitros'] %}
+                                    {{ (item['quantidade'] / 1000 * item['preco_unitario'])|formatar_preco }}
+                                {% else %}
+                                    {{ (item['quantidade'] * item['preco_unitario'])|formatar_preco }}
+                                {% endif %}
+                            {% else %}
+                                Preço não disponível
+                            {% endif %}
+                            <form action="{{ url_for('remover_item_carrinho', produto_id=item['produto_id']) }}" method="POST">
+                                <button type="submit">Remover</button>
+                            </form>
+                        </li>
+                    {% endfor %}
+                    <form action="{{ url_for('carrinho') }}" method="POST">
+                        <button type="submit" id="botao_vender">Vender</button>
+                    </form>
+                {% else %}
+                    <p>A lista está vazia.</p>
+                {% endif %}
+            </div>
+        </div>
+
+        {% if mensagem_erro %}
+        <div>
+            <p>{{ mensagem_erro }}</p>
+        </div>
+        {% endif %}
+
+        <div id="link_voltar">
+            <a href="{{ url_for('index') }}">Voltar</a>
+        </div>
+    </main>
+    <footer id="rodape">
+        <p>&copy; 2024 Sistema de Vendas e Controle de Estoque</p>
+    </footer>
+</body>
+</html>

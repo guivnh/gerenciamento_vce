@@ -1,0 +1,842 @@
+/* Estilos específicos para a página inicial */
+
+#pagina-inicial-header {
+    background-color: #e8f5e9;
+    text-align: center;
+    padding: 20px;
+    border-bottom: 2px solid #81c784;
+}
+
+#pagina-inicial-header h1 {
+    color: #388e3c;
+    font-family: 'Arial', sans-serif;
+    font-size: 2em;
+    margin: 0;
+}
+
+#pagina-inicial-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+    background-color: #f1f8e9;
+    flex: 1;
+}
+
+#pagina-inicial-main a {
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    background-color: #66bb6a;
+    padding: 50px 50px;
+    margin: 10px;
+    border-radius: 5px;
+    font-family: 'Arial', sans-serif;
+    font-size: 1.4em;
+    transition: background-color 0.3s ease;
+}
+
+#pagina-inicial-main a:hover {
+    background-color: #388e3c;
+}
+
+#pagina-inicial-footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #e8f5e9;
+    border-top: 2px solid #81c784;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+#pagina-inicial-footer p {
+    color: #388e3c;
+    font-family: 'Arial', sans-serif;
+    font-size: 0.9em;
+    margin: 0;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+#pagina-inicial-body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Estilos específicos para a página de cadastro de produtos */
+
+#pagina-cadastrar-produto-header {
+    background-color: #e8f5e9;
+    text-align: center;
+    padding: 20px;
+    border-bottom: 2px solid #81c784;
+}
+
+#pagina-cadastrar-produto-header h1 {
+    color: #388e3c;
+    font-family: 'Arial', sans-serif;
+    font-size: 2em;
+    margin: 0;
+}
+
+#pagina-cadastrar-produto-main {
+    padding: 40px 20px;
+    background-color: #f1f8e9;
+    flex: 1;
+    box-sizing: border-box;
+}
+
+#pagina-cadastrar-produto-mensagem {
+    margin-bottom: 20px;
+    font-family: 'Arial', sans-serif;
+    color: #388e3c;
+}
+
+#pagina-cadastrar-produto-mensagem ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#pagina-cadastrar-produto-mensagem li {
+    background-color: #c8e6c9;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 4px;
+}
+
+#pagina-cadastrar-produto-form {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+#pagina-cadastrar-produto-form label {
+    margin-bottom: 5px;
+    font-family: 'Arial', sans-serif;
+    font-size: 1em;
+}
+
+#pagina-cadastrar-produto-form input,
+#pagina-cadastrar-produto-form select,
+#pagina-cadastrar-produto-form button {
+    margin-bottom: 15px;
+    padding: 20px ;
+    border: 1px solid #c8e6c9;
+    border-radius: 4px;
+    font-family: 'Arial', sans-serif;
+}
+
+#pagina-cadastrar-produto-form button {
+    background-color: #66bb6a;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#pagina-cadastrar-produto-form button:hover {
+    background-color: #388e3c;
+}
+
+#pagina-cadastrar-produto-back-link {
+    text-align: center;
+}
+
+#pagina-cadastrar-produto-back-link a {
+    border-radius: 10px;
+    color: #388e3c;
+    text-decoration: none;
+    font-family: 'Arial', sans-serif;
+    font-size: 1.5em;
+    padding: 10px 20px;
+    box-shadow: 0 3px 5px rgb(179, 184, 178); /* Sombra leve */
+}
+
+#pagina-cadastrar-produto-back-link a:hover {
+    text-decoration: underline;
+}
+
+#pagina-cadastrar-produto-footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #e8f5e9;
+    border-top: 2px solid #81c784;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+#pagina-cadastrar-produto-footer p {
+    color: #388e3c;
+    font-family: 'Arial', sans-serif;
+    font-size: 0.9em;
+    margin: 0;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+#pagina-cadastrar-produto-main {
+    flex: 1;
+}
+
+/* Estilos específicos para a página de listar produtos */
+
+#pagina-listar-produtos-header {
+    background-color: #e8f5e9;
+    text-align: center;
+    padding: 20px;
+    border-bottom: 2px solid #81c784;
+}
+
+#pagina-listar-produtos-header h1 {
+    color: #388e3c;
+    font-family: 'Arial', sans-serif;
+    font-size: 2em;
+    margin: 0;
+}
+
+#pagina-listar-produtos-main {
+    padding: 40px 20px;
+    background-color: #f1f8e9;
+    min-height: 60vh;
+    box-sizing: border-box;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Alinha os itens à esquerda */
+}
+
+#pagina-listar-produtos-mensagem {
+    margin-bottom: 20px;
+    font-family: 'Arial', sans-serif;
+    color: #388e3c;
+}
+
+#pagina-listar-produtos-mensagem ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#pagina-listar-produtos-mensagem li {
+    background-color: #c8e6c9;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 4px;
+}
+
+#pagina-listar-produtos-table {
+    width: 100%;
+    max-width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+#pagina-listar-produtos-table th,
+#pagina-listar-produtos-table td {
+    border: 1px solid #c8e6c9;
+    padding: 10px;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    font-size: 1em;
+}
+
+#pagina-listar-produtos-table th {
+    background-color: #81c784;
+    color: white;
+}
+
+#pagina-listar-produtos-table td a {
+    color: #388e3c;
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+#pagina-listar-produtos-table td a:hover {
+    text-decoration: none;
+}
+
+#pagina-listar-produtos-links {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Alinha os itens à esquerda */
+}
+
+#pagina-listar-produtos-links form {
+    display: flex;
+    align-items: center;
+    margin: 0; /* Remove qualquer margem */
+}
+
+#pagina-listar-produtos-links input[type="file"] {
+    border: 2px solid #c8e6c9;
+    padding: 15px;
+    border-radius: 20px;
+    margin-left: 10px; /* Espaço à esquerda do botão */
+}
+
+#pagina-listar-produtos-links button,
+#pagina-listar-produtos-links a {
+    font-family: 'Arial', sans-serif;
+    font-size: 1em;
+    padding: 15px 20px; /* Ajustado para ser igual ao botão de importação */
+    background-color: #28a745;
+    border-radius: 5px;
+    color: #ffffff; /* Texto branco */
+    border: none; /* Remove qualquer borda */
+    text-decoration: none; /* Remove o sublinhado */
+    cursor: pointer;
+    margin-bottom: 0; /* Espaçamento ajustado para separar do input de arquivo */
+}
+
+#pagina-listar-produtos-links button:hover,
+#pagina-listar-produtos-links a:hover {
+    background-color: #218838;
+}
+
+#pagina-listar-produtos-links-voltar {
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente o botão "Voltar" */
+    margin-top: 20px;
+    width: 100%;
+}
+
+#pagina-listar-produtos-links-voltar a {
+    border-radius: 10px;
+    color: #388e3c;
+    text-decoration: none;
+    font-family: 'Arial', sans-serif;
+    font-size: 1.5em;
+    padding: 10px 20px;
+    box-shadow: 0 3px 5px rgb(179, 184, 178); /* Sombra leve */
+
+}#pagina-listar-produtos-links-voltar a:hover {
+    text-decoration: underline;
+}
+
+#pagina-listar-produtos-footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #e8f5e9;
+    border-top: 2px solid #81c784;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+#pagina-listar-produtos-footer p {
+    color: #388e3c;
+    font-family: 'Arial', sans-serif;
+    font-size: 0.9em;
+    margin: 0;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Estilos específicos para a página de edição de produtos */
+
+#pagina-editar-produto-header {
+    background-color: #e8f5e9;
+    text-align: center;
+    padding: 20px;
+    border-bottom: 2px solid #81c784;
+}
+
+#pagina-editar-produto-header h1 {
+    color: #388e3c;
+    font-family: 'Arial', sans-serif;
+    font-size: 2em;
+    margin: 0;
+}
+
+#pagina-editar-produto-main {
+    padding: 40px 20px;
+    background-color: #f1f8e9;
+    flex: 1;
+    box-sizing: border-box;
+}
+
+#pagina-editar-produto-form {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+#pagina-editar-produto-form label {
+    margin-bottom: 5px;
+    font-family: 'Arial', sans-serif;
+    font-size: 1em;
+}
+
+#pagina-editar-produto-form input,
+#pagina-editar-produto-form select,
+#pagina-editar-produto-form textarea,
+#pagina-editar-produto-form button {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #c8e6c9;
+    border-radius: 4px;
+    font-family: 'Arial', sans-serif;
+    height: auto; /* Permite controlar a altura */
+}
+
+#pagina-editar-produto-form input,
+#pagina-editar-produto-form select {
+    height: 40px; /* Altura padrão para input e select */
+}
+
+#pagina-editar-produto-form textarea {
+    height: 100px; /* Altura padrão para textarea */
+    resize: vertical; /* Permite ao usuário redimensionar a altura */
+}
+
+#pagina-editar-produto-form button {
+    height: 50px; /* Altura padrão para o botão */
+    background-color: #66bb6a;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#pagina-editar-produto-form button:hover {
+    background-color: #388e3c;
+}
+
+#pagina-editar-produto-back-link {
+    text-align: center;
+}
+
+#pagina-editar-produto-back-link a {
+    border-radius: 10px;
+    color: #388e3c;
+    text-decoration: none;
+    font-family: 'Arial', sans-serif;
+    font-size: 1.5em;
+    padding: 10px 20px;
+    box-shadow: 0 3px 5px rgb(179, 184, 178); /* Sombra leve */
+}
+
+#pagina-editar-produto-back-link a:hover {
+    text-decoration: underline;
+}
+
+#pagina-editar-produto-footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #e8f5e9;
+    border-top: 2px solid #81c784;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    box-sizing: border-box;
+}
+
+#pagina-editar-produto-footer p {
+    color: #388e3c;
+    font-family: 'Arial', sans-serif;
+    font-size: 0.9em;
+    margin: 0;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+#pagina-editar-produto-main {
+    flex: 1;
+}
+
+/* Estilos gerais para a página de realizar vendas */
+#pagina_realizar_venda {
+    font-family: Arial, sans-serif;
+    background-color: #f1f8e9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden; /* Evita rolagem horizontal */
+}
+
+#cabecalho {
+    color: #388e3c;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    background-color: #e8f5e9;
+    text-align: center;
+    padding: 20px;
+    border-bottom: 2px solid #81c784;
+}
+
+#cabecalho h1 {
+    margin: 0;
+}
+
+/* Estilo para o conteúdo principal */
+#conteudo_principal {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza o conteúdo principal horizontalmente */
+}
+
+#container_principal {
+    display: flex;
+    justify-content: center; /* Centraliza o container principal */
+    align-items: flex-start; /* Alinha o conteúdo no topo do container */
+    max-width: 1000px; /* Largura máxima do contêiner */
+    width: 100%;
+    gap: 20px; /* Espaçamento entre o formulário e a lista de itens */
+}
+
+/* Estilo para o formulário */
+#formulario_container {
+    flex: 1;
+    max-width: 600px; /* Largura máxima da div do formulário */
+    background-color: #bcdcbf; /* Verde claro */
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box; /* Inclui padding e border no cálculo da largura */
+}
+
+#formulario_venda label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+#formulario_venda input[type="number"],
+#formulario_venda input[type="text"],
+#formulario_venda select {
+    width: 95%;
+    padding: 10px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#formulario_venda button {
+    background-color: #4CAF50; /* Verde escuro */
+    color: white;
+    border: none;
+    padding: 20px 20px; /* Aumenta o padding para aumentar a altura */
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 20px; /* Adiciona uma margem superior ao botão */
+    font-size: 1em; /* Ajusta o tamanho da fonte para combinar com a nova altura */
+}
+
+#formulario_venda button#adicionar {
+    margin-top: 20px; /* Espaçamento específico para o botão "Adicionar" */
+    padding: 20px 20px; /* Ajusta o padding para aumentar a altura do botão */
+}
+
+#formulario_venda button:hover {
+    background-color: #45a049; /* Verde um pouco mais escuro */
+}
+
+#mensagem_erro {
+    color: #45a049;
+    margin-top: 10px;
+}
+
+/* Estilo para a lista de itens */
+#lista_itens {
+    font-size: 0.8em;
+    flex: 1;
+    max-width: 800px; /* Largura máxima da lista de itens */
+    height: 600px; /* Limita a altura da lista de itens */
+    overflow-y: auto; /* Adiciona rolagem vertical se necessário */
+}
+
+#lista_itens h2 {
+    margin-top: 0;
+}
+
+#lista_itens li {
+    margin-bottom: 30px;
+}
+
+#lista_itens form {
+    display: inline;
+}
+
+#lista_itens button {
+    background-color: #449c26; /* Verde */
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#lista_itens button:hover {
+    background-color: #5ed632; /* Verde um pouco mais escuro */
+}
+
+#lista_itens #botao_vender {
+    background-color: #4CAF50; /* Verde escuro */
+    color: white;
+    border: none;
+    padding: 15px 30px; /* Botão grande */
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.2em; /* Aumenta o tamanho da fonte */
+    display: block;
+    margin: 20px auto; /* Centraliza o botão horizontalmente */
+    text-align: center;
+}
+
+#lista_itens #botao_vender:hover {
+    background-color: #45a049; /* Verde um pouco mais escuro */
+}
+
+/* Estilo para o link "Voltar" */
+#link_voltar {
+    margin: 20px 0; /* Margem superior e inferior para o botão "Voltar" */
+    display: flex;
+    justify-content: center; /* Centraliza o link horizontalmente */
+    width: 100%; /* Garante que o link ocupe toda a largura disponível */
+}
+
+#link_voltar a {
+    border-radius: 10px;
+    color: #388e3c;
+    text-decoration: none;
+    font-family: 'Arial', sans-serif;
+    font-size: 1.5em;
+    padding: 10px 20px;
+    box-shadow: 0 3px 5px rgb(179, 184, 178); /* Sombra leve */
+}
+
+#link_voltar a:hover {
+    text-decoration: underline;
+}
+
+/* Estilo para o rodapé */
+#rodape {
+    text-align: center;
+    padding: 20px;
+    background-color: #e8f5e9;
+    border-top: 2px solid #81c784;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+#rodape p {
+    color: #388e3c;
+    font-family: 'Arial', sans-serif;
+    font-size: 0.9em;
+    margin: 0;
+}
+
+
+/* Estilos para a página de listar vendas */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #f1f8e9; /* Cor de fundo do corpo da página */
+}
+
+.listar-vendas-header {
+    color: #388e3c;
+    margin: 0;
+    background-color: #e8f5e9;
+    text-align: center;
+    border-bottom: 2px solid #81c784;
+}
+
+.listar-vendas-main {
+    flex: 1;
+    padding: 40px 20px; /* Ajustado para ficar igual à página de listar produtos */
+    background-color: #f1f8e9;
+    box-sizing: border-box;
+}
+
+.listar-vendas-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.listar-vendas-table th, .listar-vendas-table td {
+    border: 1px solid #c8e6c9;
+    padding: 10px;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    font-size: 1em;
+}
+
+.listar-vendas-table th {
+    background-color: #81c784;
+    color: white;
+}
+
+.item-preco, .item-total {
+    text-align: right;
+}
+
+.venda-id, .venda-data {
+    text-align: center;
+}
+
+.item-quantidade, .item-produto, .item-observacao {
+    text-align: center;
+}
+
+.remover-link {
+    display: inline-block;
+    padding: 15px 10px;
+    background-color: #044a09; /* Cor ajustada para verde escuro */
+    color: #ffffff;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1em; /* Tamanho da fonte ajustado */
+    font-family: 'Arial', sans-serif; /* Fonte ajustada */
+}
+
+.remover-link:hover {
+    background-color: #4bc151;
+}
+
+.listar-vendas-actions {
+    text-align: center; /* Alinha os links ao centro, igual à página de listar produtos */
+    margin-top: 20px;
+}
+
+.import-form {
+    flex-direction: column; /* Ajusta a direção dos itens do formulário */
+    align-items: flex-start; /* Alinha os itens à esquerda */
+}
+
+.import-file {
+    border: 2px solid #c8e6c9; /* Ajustado para corresponder ao estilo */
+    padding: 15px;
+    border-radius: 20px;
+}
+
+.export-link, .import-submit {
+    font-family: 'Arial', sans-serif; /* Fonte ajustada */
+    font-size: 1em; /* Tamanho da fonte ajustado */
+}
+
+.export-link {
+    padding: 15px 20px; /* Ajustado para ser igual ao botão de importação */
+    background-color: #28a745;
+    border-radius: 5px;
+    color: #ffffff; /* Texto branco */
+    text-decoration: none; /* Remove o sublinhado */
+}
+
+.export-link:hover {
+    background-color: #218838;
+}
+
+.import-submit {
+    padding: 15px 20px; /* Ajustado para ter o mesmo padding que o link de exportação */
+    background-color: #28a745;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 10px; /* Espaçamento ajustado para separar do input de arquivo */
+}
+
+.import-submit:hover {
+    background-color: #218838;
+}
+
+.back-button-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.realizadas-back-link {
+    border-radius: 10px;
+    display: inline-block;
+    color: #388e3c;
+    text-decoration: none;
+    font-family: 'Arial', sans-serif;
+    font-size: 1.5em;
+    padding: 10px 20px;
+    box-shadow: 0 3px 5px rgb(179, 184, 178); /* Sombra leve */
+}
+
+#pagina-listar-vendas-links-direita a {
+    color: #388e3c;
+    text-decoration: none;
+    font-family: 'Arial', sans-serif;
+    font-size: 1em;
+}
+
+.realizadas-back-link:hover {
+    text-decoration: underline;
+}
+
+.listar-vendas-footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #e8f5e9;
+    border-top: 2px solid #81c784;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.listar-vendas-footer p {
+    color: #388e3c;
+    font-family: 'Arial', sans-serif;
+    font-size: 0.9em;
+    margin: 0;
+}
+
+.separator {
+    margin: 10px;
+    color: #388e3c;
+    font-weight: bold;
+}
+
+/* Estilo da linha total */
+.linha-total {
+    background-color: #dcedc8; /* Fundo verde claro */
+    color: #000; /* Texto preto */
+    font-weight: bold;
+}
+
+.total-texto-valor {
+    padding: 10px; /* Espaçamento interno */
+    text-align: center; /* Centraliza o texto e o valor */
+}
