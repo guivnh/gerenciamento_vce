@@ -48,7 +48,7 @@ O projeto visa proporcionar aos pequenos e médios empreendedores uma maneira f�
 
 ## Manual do usuário
 
-- Em contrução.
+- Em construção.
 
 ## Desenvolvimento
 
