@@ -39,7 +39,7 @@ O projeto visa proporcionar aos pequenos e médios empreendedores uma maneira f�
   - Nome do produto;
   - Quantidade vendida;
   - Preço (por unidade, gramas ou mililitros);
-  - Valor total da venda;
+  - Valor total do produto listado para venda;
   - Data e hora da venda;
   - Observações;
   - Botão de exclusão de vendas;
