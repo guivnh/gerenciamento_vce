@@ -48,7 +48,8 @@ O projeto visa proporcionar aos pequenos e médios empreendedores uma maneira f�
 
 ## Manual do usuário
 
-- Em construção.
+- Vídeo guia simples de utilização do aplicativo rodando localmente: [Vídeo no YOUTUBE.](https://youtu.be/j1UxKJodvNo)
+- Documento pdf em construção.
 
 ## Desenvolvimento
 
