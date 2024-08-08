@@ -17,7 +17,7 @@ O projeto visa proporcionar aos pequenos e médios empreendedores uma maneira f�
   - Observações (opcional).
 
 
-- **Módulo de Lista de Produtos Cadastrados**: Exibe uma lista com colunas para:
+- **Módulo de Lista de Produtos Cadastrados**: Exibe uma lista com as colunas:
   - Nome do produto;
   - Preço de venda;
   - Preço de compra;
@@ -28,9 +28,9 @@ O projeto visa proporcionar aos pequenos e médios empreendedores uma maneira f�
 
 
 - **Módulo de Realizar Venda**: Permite selecionar produtos e:
-  - Exibir preço de venda e quantidade disponível;
+  - Exibe o preço de venda e quantidade disponível;
   - Inserir a quantidade desejada para venda;
-  - Calcula automaticamente o valor total do preço do produto X quantidade;
+  - Calcula automaticamente o valor total do preço do produto X quantidade em estoque;
   - Adicionar múltiplos produtos para uma única venda.
 
 
