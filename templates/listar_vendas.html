@@ -16,9 +16,9 @@
                 <tr>
                     <th>ID da Venda</th>
                     <th>Nome do Produto</th>
-                    <th>Quantidade (Gramas ou Unidades)</th>
-                    <th>Preço (Kg ou Unidade)</th>
-                    <th>Valor Total (R$)</th>
+                    <th>Quantidade (un, g ou ml)</th>
+                    <th>Preço de Venda (R$)</th>
+                    <th>Preço Total (R$)</th>
                     <th>Data e Hora</th>
                     <th>Observação</th>
                     <th>Remover da Lista</th>
@@ -96,7 +96,7 @@
                         tr.className = 'linha-total';
                         tr.innerHTML = `
                             <td colspan="8" class="total-texto-valor">
-                                <strong>Total da Venda:</strong> R$ ${totalSum.toFixed(2).replace('.', ',')}
+                                <strong>Valor Total da Venda:</strong> R$ ${totalSum.toFixed(2).replace('.', ',')}
                             </td>
                         `;
                         lastRow.insertAdjacentElement('afterend', tr);
