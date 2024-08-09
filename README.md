@@ -61,7 +61,7 @@ O software foi desenvolvido usando:
 
 ### Dependências
 
-#### Para máquinas clientes:
+#### Para clientes:
 
 - Flask
 - Jinja2
@@ -70,10 +70,10 @@ O software foi desenvolvido usando:
 - click
 - itsdangerous
 - pymongo
-- MongoDB
+- MongoDB 
 - waitress
 
-#### Para desenvolvedores:
+#### Para desenvolvimento:
 
 - Flask
 - Jinja2
@@ -96,6 +96,11 @@ O software foi desenvolvido usando:
 - six
 - tzdata
 - waitress
+
+### Configuração padrão do ambiente de execução
+
+- Instale as dependências necessárias ao seu modo de uso(Cliente ou Desenvolvedor).
+- Instale o MongoDB e use-o como serviço(localhost:27017). Crie o banco de dados 'gerenciamento_vendas' e as coleções 'produtos' e 'vendas'.
 
 ## Docker
 
