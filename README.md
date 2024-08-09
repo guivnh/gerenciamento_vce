@@ -1,4 +1,4 @@
-# Sistema de Vendas e Controle de Estoque
+# Sistema de Controle de Estoque e Gerenciamento de Vendas
 
 ## Descrição
 
