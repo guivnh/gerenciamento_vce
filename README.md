@@ -49,7 +49,7 @@ O projeto visa proporcionar aos pequenos e médios empreendedores uma maneira f�
 ## Manual do usuário
 
 - Vídeo guia simples de utilização do aplicativo rodando localmente: [Vídeo no YOUTUBE.](https://youtu.be/j1UxKJodvNo)
-- [Manual básico do usuário.](Manual.pdf) Em PDF.
+- [Manual básico do usuário.](docs/Manual.pdf) Em PDF.
 
 ## Desenvolvimento
 
@@ -110,7 +110,7 @@ O projeto inclui:
 
 ## Licença
 
-Este projeto está licenciado sob a [Apache License 2.0](LICENSE.txt). Veja o arquivo LICENSE para mais detalhes.
+Este projeto está licenciado sob a [Apache License 2.0](docs/LICENSE.txt). Veja o arquivo LICENSE para mais detalhes.
 
 ## Contato
 
