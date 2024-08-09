@@ -105,8 +105,8 @@ O software foi desenvolvido usando:
 ## Docker
 
 O projeto inclui:
-- **Dockerfile**: Para criar e executar o ambiente de desenvolvimento e produção.
-- **requirements.txt**: Lista de dependências necessárias para o ambiente Python.
+- **Dockerfile**: Para criar e executar um ambiente de desenvolvimento e produção.
+- **requirements.txt**: Lista de dependências necessárias para um ambiente Python.
 
 ## Licença
 
