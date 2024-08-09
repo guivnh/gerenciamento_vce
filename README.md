@@ -114,4 +114,4 @@ Este projeto está licenciado sob a [Apache License 2.0](docs/LICENSE.txt). Veja
 
 ## Contato
 
-Para mais informações, entre em contato com [Guilherme Vanhoni](mailto:guivnh@gmail.com).
+Para mais informações, [entre em contato](mailto:guivnh@gmail.com).
