@@ -97,14 +97,13 @@ O software foi desenvolvido usando:
 - tzdata
 - waitress
 
-### Configuração padrão do ambiente de execução
+### Configuração padrão do ambiente de execução local
 
 - Instale as dependências necessárias ao seu modo de uso(Cliente ou Desenvolvedor).
 - Instale o MongoDB e use-o como serviço(localhost:27017). Crie o banco de dados 'gerenciamento_vendas' e as coleções 'produtos' e 'vendas'.
 
-## Docker
+### Configuração padrão para deploy na Nuvem (com Docker)
 
-O projeto inclui:
 - **Dockerfile**: Para criar e executar um ambiente de desenvolvimento e produção.
 - **requirements.txt**: Lista de dependências necessárias para um ambiente Python.
 
