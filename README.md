@@ -30,7 +30,7 @@ O projeto visa proporcionar aos pequenos e médios empreendedores uma maneira f�
 - **Módulo de Realizar Venda**: Permite selecionar produtos e:
   - Exibe o preço de venda e quantidade disponível;
   - Inserir a quantidade desejada para venda;
-  - Calcula automaticamente o valor total do preço do produto X quantidade para venda;
+  - Calcula e mostra o valor total do preço do produto X quantidade para venda em tempo real;
   - Adicionar múltiplos produtos para uma única venda.
 
 
