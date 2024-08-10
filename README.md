@@ -102,7 +102,7 @@ O software foi desenvolvido usando:
 - Instale as dependências necessárias ao seu modo de uso(Cliente ou Desenvolvedor).
 - Instale o MongoDB e use-o como serviço(localhost:27017). Crie o banco de dados 'gerenciamento_vendas' e as coleções 'produtos' e 'vendas'.
 
-### Configuração padrão para deploy na Nuvem (com Docker)
+### Configuração padrão de deploy com Docker
 
 - **Dockerfile**: Para criar e executar um ambiente de desenvolvimento e produção.
 - **requirements.txt**: Lista de dependências necessárias para um ambiente Python.
