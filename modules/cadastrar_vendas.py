@@ -8,7 +8,7 @@ def registrar_venda(produto_nome, quantidade, preco_final):
     try:
         venda = {
             'produto': produto_nome,
-            'data': datetime.now().strftime('%Y-%m-%d'),
+            'data': datetime.now().strftime('%d-%m-%Y'),
             'hora': datetime.now().strftime('%H:%M:%S'),
             'quantidade': quantidade,
             'preco_total': preco_final
